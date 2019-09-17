@@ -93,8 +93,8 @@ class tx_kesearch_indexer
                 $this->registry->removeAllByNamespace('tx_kesearch');
                 $this->registry->set('tx_kesearch', 'startTimeOfIndexer', time());
             } else {
-                return 'You can\'t start the indexer twice. Please wait '
-                . 'while first indexer process is currently running';
+                throw new \RuntimeException('You can\'t start the indexer twice. Please wait '
+                . 'while first indexer process is currently running');
             }
         }
 
