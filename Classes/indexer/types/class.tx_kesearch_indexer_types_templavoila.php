@@ -18,6 +18,7 @@
  ***************************************************************/
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Backend\Configuration\TranslationConfigurationProvider;
 
 /**
  * Plugin 'Faceted search' for the 'ke_search' extension.
@@ -114,7 +115,7 @@ class tx_kesearch_indexer_types_templavoila extends tx_kesearch_indexer_types
 
         // get all available sys_language_uid records
         /** @var TranslationConfigurationProvider $translationProvider */
-        $translationProvider = GeneralUtility::makeInstance(TranslationConfigurationProvider::class);
+        $translationProvider = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(TranslationConfigurationProvider::class);
         $this->sysLanguages = $translationProvider->getSystemLanguages($pageId);
     }
 
